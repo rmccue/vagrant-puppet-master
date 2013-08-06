@@ -18,10 +18,10 @@ define myproject::site (
 		notify => Service['nginx']
 	}
 
-	mysql::db {'wordpress':
-		user     => 'root',
-		password => 'password',
-		host     => 'localhost',
+	mysql::db {$database:
+		user     => $database_user,
+		password => $database_password,
+		host     => $database_host,
 		grant    => ['all'],
 	}
 }
